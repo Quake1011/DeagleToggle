@@ -6,5 +6,5 @@
 - sm_deagleoff - Player Command. To give 1 vote for deagles turn off
 
 ## Contain
-1) csgo_colors.inc - Library for send colored messages in chat
-2) deagletoggle.phrases.txt - Translations phrases for plugin messages
+1) csgo_colors.inc - Library for sends colored messages in chat
+2) deagletoggle.phrases.txt - Translation phrases for plugin messages
