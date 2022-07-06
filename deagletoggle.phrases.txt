@@ -1,0 +1,46 @@
+"Phrases"
+{
+    "on_yet"
+    {
+        "ru"                "Диглы уже включены!"
+        "en"                "Deagles are on yet"
+    }
+
+    "off_yet"
+    {
+        "ru"                "Диглы уже вsключены!"
+        "en"                "Deagles are off yet"
+    }
+
+    "player_voted_off"
+    {
+        "#format"           "{1:N},{2:i},{3:i}"
+        "ru"                "Игрок {1} проголосовал за выключение диглов до конца карты. {2}/{3} голосов."
+        "en"                "Player {1} voted for turn off deagle until map end. {2}/{3} votes."
+    }
+
+    "player_voted_on"
+    {
+        "#format"           "{1:N},{2:i},{3:i}"
+        "ru"                "Игрок {1} проголосовал за включение диглов до конца карты. {2}/{3} голосов."
+        "en"                "Player {1} voted for turn on deagle until map end. {2}/{3} votes."
+    }
+
+    "off"
+    {
+        "ru"                "выключены"
+        "en"                "are off"
+    }
+
+    "on"
+    {
+        "ru"                "включены"
+        "en"                "are on"
+    }
+
+    "deagle"
+    {
+        "ru"                "Диглы"
+        "en"                "Deagles"
+    }
+}
