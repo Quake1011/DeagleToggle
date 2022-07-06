@@ -27,6 +27,7 @@ public void OnPluginStart()
     iCurrentVotes = 0;
 
     HookEvent("player_spawn", EventPlayerSpawn, EventHookMode_Post);
+    
     RegAdminCmd("sm_deagle", ToogleDeagle, ADMFLAG_ROOT);
     RegConsoleCmd("sm_deagleon", VotingDeagleOn);
     RegConsoleCmd("sm_deagleoff", VotingDeagleOff);
@@ -40,11 +41,10 @@ public void OnMapStart()
     {
         bVote[i] = false;
     }
-    
     iCurrentVotes = 0;
 }
 
-public void OnClientDisconnect_Post(client)
+public void OnClientDisconnect(int client)
 {
     bVote[client] = false;
     iCurrentVotes -= 1;
@@ -63,7 +63,7 @@ public Action VotingDeagleOff(int client, int args)
             }
         }
         char value[10];
-        FloatToString(fTotal/100*PERCENTS, value, sizeof(value))
+        FloatToString(fTotal / 100 * PERCENTS, value, sizeof(value))
         int iTotal = StringToInt(value);
         iCurrentVotes += 1;
         CGOPrintToChatAll("%t", "player_voted_off", client, iCurrentVotes, iTotal);
@@ -97,7 +97,7 @@ public Action VotingDeagleOn(int client, int args)
             }
         }
         char value[10];
-        FloatToString(fTotal/100*PERCENTS, value, sizeof(value))
+        FloatToString(fTotal / 100 * PERCENTS, value, sizeof(value))
         int iTotal = StringToInt(value);
         iCurrentVotes++;
         CGOPrintToChatAll("%t", "player_voted_on", client, iCurrentVotes, iTotal);
@@ -157,7 +157,8 @@ public Action ToogleDeagle(int client, int args)
         }
         bDeagle = false;
     }
-    CGOPrintToChatAll("%t %t", "deagle", bDeagle?"on":"off");
+    CGOPrintToChatAll("%t %t", "deagle", bDeagle ? "on" : "off");
+    
     return Plugin_Continue;
 }
 
@@ -167,7 +168,7 @@ public void EventPlayerSpawn(Event hEvent, const char[] sEvent, bool bdb)
     hTimer[i] = CreateTimer(0.2, TimerDel, i, TIMER_FLAG_NO_MAPCHANGE);
 }
 
-public Action TimerDel(Handle NewTimer, client)
+public Action TimerDel(Handle NewTimer, int client)
 {
     if(!bDeagle)
     {
@@ -195,7 +196,7 @@ public Action TimerDel(Handle NewTimer, client)
         if(hTimer[client]!=INVALID_HANDLE)
         {
             KillTimer(hTimer[client]);
-            hTimer[client]=null;        
+            hTimer[client] = null;        
         }
     }
     return Plugin_Continue;
