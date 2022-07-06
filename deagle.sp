@@ -161,11 +161,10 @@ public Action ToogleDeagle(int client, int args)
     return Plugin_Continue;
 }
 
-public Action EventPlayerSpawn(Event hEvent, const char[] sEvent, bool bdb)
+public void EventPlayerSpawn(Event hEvent, const char[] sEvent, bool bdb)
 {
     int i = GetClientOfUserId(hEvent.GetInt("userid"));
     hTimer[i] = CreateTimer(0.2, TimerDel, i, TIMER_FLAG_NO_MAPCHANGE);
-    return Plugin_Continue;
 }
 
 public Action TimerDel(Handle NewTimer, client)
